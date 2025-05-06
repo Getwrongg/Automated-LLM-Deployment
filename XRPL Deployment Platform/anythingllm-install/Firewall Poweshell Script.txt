@@ -1,0 +1,16 @@
+# Allow incoming traffic for AnythingLLM on port 3001
+New-NetFirewallRule -DisplayName "Allow AnythingLLM" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3001
+
+# Allow outbound traffic for Docker executable
+New-NetFirewallRule -DisplayName "Allow Docker Outbound" -Direction Outbound -Action Allow -Program "C:\Program Files\Docker\Docker\resources\bin\docker.exe"
+
+# Restart Docker service (WSL-based)
+wsl --shutdown
+Start-Service docker
+
+# Restart AnythingLLM container
+docker-compose down
+docker-compose up -d
+
+# Check if AnythingLLM is responding
+curl http://localhost:3001/api/status

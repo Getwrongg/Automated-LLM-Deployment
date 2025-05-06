@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    runtime: nvidia  # Ensure NVIDIA GPU is used
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ports:
+      - "11434:11434"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - OLLAMA_MODELS=/root/.ollama
+      - OLLAMA_TOOLS="[{\"name\":\"transactions\",\"url\":\"http://192.168.50.52:3002/transactions\",\"type\":\"function\",\"function\":{\"description\":\"Fetches recent transactions from the XRPL ledger\",\"parameters\":{\"type\":\"object\",\"properties\":{\"limit\":{\"type\":\"integer\",\"description\":\"Number of transactions to fetch\"},\"currency\":{\"type\":\"string\",\"description\":\"Filter by currency (e.g., XRP, USD, BNB)\"},\"account\":{\"type\":\"string\",\"description\":\"Filter by account address\"}},\"required\":[\"limit\"]}}},{\"name\":\"ledger\",\"url\":\"http://192.168.50.52:3002/ledger\"},{\"name\":\"server\",\"url\":\"http://192.168.50.52:3002/server\"},{\"name\":\"validations\",\"url\":\"http://192.168.50.52:3002/validations\"},{\"name\":\"manifests\",\"url\":\"http://192.168.50.52:3002/manifests\"},{\"name\":\"consensus\",\"url\":\"http://192.168.50.52:3002/consensus\"}]"
+    command: ["serve"]
+    volumes:
+      - "C:/models/:/root/.ollama/models"
+

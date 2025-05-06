@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="anythingllm-install\docker-compose.yml" />
+	  <None Remove="anythingllm-install\Dockerfile" />
+	  <None Remove="docker-purge\purge-anythingllm.ps1" />
+	  <None Remove="docker-purge\purge-ollama.ps1" />
+	  <None Remove="node-deployment-applications\ollama-api\Ollama.zip" />
+	  <None Remove="ollama-install\Anythingllm.ps1" />
+	  <None Remove="ollama-install\deploy-agents.ps1" />
+	  <None Remove="ollama-install\docker-compose.yml" />
+	  <None Remove="Purge.ps1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="anythingllm-install\anythingllm.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="anythingllm-install\docker-compose.yml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="anythingllm-install\dockerfile">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="docker-purge\purge-anythingllm.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="docker-purge\purge-ollama.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="node-deployment-applications\ollama-api\Dockerfile">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="node-deployment-applications\ollama-api\ollama-api.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="node-deployment-applications\ollama-api\Ollama.zip">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ollama-install\deploy-agents.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ollama-install\docker-compose.yml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ollama-install\ollama.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="docker-purge\purge.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="ollama-install\pull-model.ps1">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+</Project>
