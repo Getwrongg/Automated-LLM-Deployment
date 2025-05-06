@@ -36,20 +36,30 @@ A simple, guided C# console tool that helps you deploy and manage local AI servi
 ## 📁 Project Structure
 
 ```
-DeploymentRunner/
-├── Program.cs
-├── anythingllm-install/
-│   ├── anythingllm.ps1
-│   └── purge-anythingLLM.ps1
-├── ollama-install/
-│   ├── ollama.ps1
-│   ├── pull-model.ps1
-│   └── purge-ollama.ps1
-├── node-deployment-applications/
-│   └── ollama-api/
-│       └── ollama-api.ps1
-└── purge.ps1
+Automated-LLM-Deployment/
+├── platform.deployment/
+│   ├── anythingllm-install/
+│   │   ├── anythingllm.ps1
+│   │   ├── docker-compose.yml
+│   │   ├── dockerfile
+│   │   └── Firewall Powershell Script.txt
+│   │
+│   ├── docker-purge/
+│   │   ├── purge.ps1
+│   │   ├── purge-anythingllm.ps1
+│   │   └── purge-ollama.ps1
+│   │
+│   ├── node-deployment-applications/
+│   │   └── ollama-api/
+│   │       ├── Dockerfile
+│   │       ├── Ollama.zip
+│   │       └── ollama-api.ps1
+│   │
+│   └── ollama-install/
+│       ├── deploy-agents.ps1
+│       └── docker-compose.yml
 ```
+
 
 ---
 
