@@ -86,17 +86,6 @@ Automated-LLM-Deployment/
 
 ---
 
-## 📸 Screenshots
-
-> Add your own screenshots in a `docs/images/` folder to show how it looks.
-
-- **Main Menu**
-  ![Main Menu](docs/images/main-menu.png)
-
-- **Help Menu**
-  ![Help Menu](docs/images/help-menu.png)
-
----
 
 ## ❓ FAQ
 
